@@ -12,6 +12,11 @@ class NewVisitorTest(unittest.TestCase):
     def tearDown(self):
         self.browser.quit()
 
+    def check_for_row_in_list_table(self, row_text):
+        table = self.browser.find_element_by_id('id_list_table')
+        rows = self.browser.find_element_by_tag_name('tr')
+        self.assertIn(row_text, [row.text for row in rows])
+
     def test_can_start_a_list_and_retrieve_it_later(self):
         # Wafa has heard about a cool new online to-do app. She goes
         # to check out its homepage
@@ -46,18 +51,13 @@ class NewVisitorTest(unittest.TestCase):
         # The page updates again, and now shows both items on her list
 
         inputbox = self.browser.find_element_by_id('id_new_item')
-        inputbox.send_keys('Use peacock feathers to make a fly')
+        inputbox.send_keys('Clean the lawn')
         inputbox.send_keys(Keys.ENTER)
         time.sleep(1)
 
         # The page updates again, and now shows both items on her list
-        table = self.browser.find_element_by_id('id_list_table')
-        rows = table.find_elements_by_tag_name('tr')
-        self.assertIn('1: Clean the house', [row.text for row in rows])
-        self.assertIn(
-            '2: 1: Clean the lawn',
-            [row.text for row in rows]
-        )
+        self.check_for_row_in_list_table('1: Clean the house')
+        self.check_for_row_in_list_table('2: Clean the lawn')
         self.fail('Finish the test!')
 
         # Wafawonders whether the site will remember her list. Then she sees
