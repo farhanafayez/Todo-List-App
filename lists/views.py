@@ -1,15 +1,166 @@
-from django.http import HttpRequest
-from django.shortcuts import render, redirect
-from lists.models import Item
-
-
-
-#  Create your views here.
+from django.shortcuts import redirect, render
+from lists.models import Item, List
 
 def home_page(request):
-    if request.method == 'POST':
-        Item.objects.create(text=request.POST['item_text'])
-        return redirect('/')
+    return render(request, 'home.html')
 
-    items = Item.objects.all()
-    return render(request, 'home.html', {'items': items})
+
+def new_list(request):
+    list_ = List.objects.create()
+    Item.objects.create(text=request.POST['item_text'], list=list_)
+    return redirect(f'/lists/{list_.id}/')
+
+
+def add_item(request, list_id):
+    list_ = List.objects.get(id=list_id)
+    Item.objects.create(text=request.POST['item_text'], list=list_)
+    return redirect(f'/lists/{list_.id}/')
+
+
+def view_list(request, list_id):
+    list_ = List.objects.get(id=list_id)
+    return render(request, 'list.html', {'list': list_})
+
+
+
+
+
+# def Json(request):
+# 	x = [{'buyers': 8,
+# 		  'buyers_change': 0,
+# 		  'buyers_comparison': 8,
+# 		  'chat_conversion': '3.25',
+# 		  'chat_count': 142,
+# 		  'chatted_buyers': 4,
+# 		  'chatted_buyers_change': 0,
+# 		  'chatted_buyers_comparison': 4,
+# 		  'chatted_carts': 4,
+# 		  'chatted_visitors': 123,
+# 		  'chatted_visitors_change': 146,
+# 		  'chatted_visitors_two_days_ago': (50,),
+# 		  'conversion': '4.68',
+# 		  'domain_name': u'domain2.com',
+# 		  'has_shopping_cart': True,
+# 		  'reporting_link': 'http://127.0.0.1:8000/reporting/dailystats?date=2015-04-01',
+# 		  'sales_chatted': ('1960.30'),
+# 		  'sales_chatted_average': '490.07',
+# 		  'sales_chatted_change': -100,
+# 		  'sales_chatted_comparison': ('1092830293048013096147.20'),
+# 		  'sales_monthly_average': '7.74',
+# 		  'sales_monthly_chatted_average': '5.25',
+# 		  'sales_monthly_chatted_change': 100,
+# 		  'sales_monthly_chatted_comparison':('0.00'),
+# 		  'sales_monthly_chatted_total': ('21.00'),
+# 		  'sales_monthly_total': ('61.90'),
+# 		  'sales_monthly_total_change': 100,
+# 		  'sales_monthly_total_comparison': ('0.00'),
+# 		  'sales_total_comparison': ('1092830293048013096374.20'),
+# 		  'session_count': 106,
+# 		  'show_monthly': True,
+# 		  'tags': [{'name': u'awesome tag', 'tag_count': 5}, {'name': u'not so awesome tag', 'tag_count': 5}],
+# 		  'total_carts': 8,
+# 		  'total_sales': ('2275.50'),
+# 		  'total_sales_average': '284.44',
+# 		  'total_sales_change': -100,
+# 		  'vis_change': 1,
+# 		  'visitor_chat_count': 142,
+# 		  'visitor_companies': [('Sonera', [72, 1]),
+# 		                        ('DNA', [15, 2]),
+# 		                        ('Elisa', [8, 1]),
+# 		                        ('Fonecta', [6, 1]),
+# 		                        ('SLO', [1, 0]),
+# 		                        ('0', [0, 0]),
+# 		                        ('1', [1, 0]),
+# 		                        ('2', [2, 0]),
+# 		                        ('3', [3, 0]),
+# 		                        ('4', [4, 0]),
+# 		                        ('5', [5, 0]),
+# 		                        ('6', [6, 0]),
+# 		                        ('7', [7, 0]),
+# 		                        ('8', [8, 0]),
+# 		                        ('9', [9, 0]),
+# 		                        ('10', [10, 0]),
+# 		                        ('11', [11, 0]),
+# 		                        ('12', [12, 0]),
+# 		                        ('13', [13, 0]),
+# 		                        ('14', [14, 0]),
+# 		                        ('15', [15, 0]),
+# 		                        ('16', [16, 0]),
+# 		                        ('17', [17, 0]),
+# 		                        ('18', [18, 0]),
+# 		                        ('19', [19, 0]),
+# 		                        ('20', [20, 0]),
+# 		                        ('21', [21, 0]),
+# 		                        ('22', [22, 0]),
+# 		                        ('23', [23, 0]),
+# 		                        ('24', [24, 0])],
+# 		  'visitor_count': 171},
+# 		 {'buyers': 11,
+# 		  'buyers_change': 57,
+# 		  'buyers_comparison': 7,
+# 		  'chat_conversion': '4.07',
+# 		  'chat_count': 142,
+# 		  'chatted_buyers': 5,
+# 		  'chatted_buyers_change': 25,
+# 		  'chatted_buyers_comparison': 4,
+# 		  'chatted_carts': 5,
+# 		  'chatted_visitors': 123,
+# 		  'chatted_visitors_change': 146,
+# 		  'chatted_visitors_two_days_ago': (50,),
+# 		  'conversion': '6.43',
+# 		  'domain_name': u'domain1.com',
+# 		  'has_shopping_cart': True,
+# 		  'reporting_link': 'http://127.0.0.1:8000/reporting/dailystats?date=2015-04-01',
+# 		  'sales_chatted': ('1398.80'),
+# 		  'sales_chatted_average': '279.76',
+# 		  'sales_chatted_change': -40,
+# 		  'sales_chatted_comparison': ('2350.40'),
+# 		  'sales_monthly_average': '5.54',
+# 		  'sales_monthly_chatted_average': '6.00',
+# 		  'sales_monthly_chatted_change': -8,
+# 		  'sales_monthly_chatted_comparison': ('32.90'),
+# 		  'sales_monthly_chatted_total': ('30.00'),
+# 		  'sales_monthly_total': ('60.90'),
+# 		  'sales_monthly_total_change': 38,
+# 		  'sales_monthly_total_comparison': ('43.90'),
+# 		  'sales_total_comparison': ('2575.90'),
+# 		  'session_count': 106,
+# 		  'show_monthly': True,
+# 		  'total_carts': 11,
+# 		  'total_sales': ('2789.20'),
+# 		  'total_sales_average': '253.56',
+# 		  'total_sales_change': 8,
+# 		  'vis_change': 1,
+# 		  'visitor_chat_count': 142,
+# 		  'visitor_companies': [('Sonera', [72, 1]),
+# 		                        ('DNA', [15, 2]),
+# 		                        ('Elisa', [8, 1]),
+# 		                        ('Fonecta', [6, 1]),
+# 		                        ('SLO', [1, 0]),
+# 		                        ('0', [0, 0]),
+# 		                        ('1', [1, 0]),
+# 		                        ('2', [2, 0]),
+# 		                        ('3', [3, 0]),
+# 		                        ('4', [4, 0]),
+# 		                        ('5', [5, 0]),
+# 		                        ('6', [6, 0]),
+# 		                        ('7', [7, 0]),
+# 		                        ('8', [8, 0]),
+# 		                        ('9', [9, 0]),
+# 		                        ('10', [10, 0]),
+# 		                        ('11', [11, 0]),
+# 		                        ('12', [12, 0]),
+# 		                        ('13', [13, 0]),
+# 		                        ('14', [14, 0]),
+# 		                        ('15', [15, 0]),
+# 		                        ('16', [16, 0]),
+# 		                        ('17', [17, 0]),
+# 		                        ('18', [18, 0]),
+# 		                        ('19', [19, 0]),
+# 		                        ('20', [20, 0]),
+# 		                        ('21', [21, 0]),
+# 		                        ('22', [22, 0]),
+# 		                        ('23', [23, 0]),
+# 		                        ('24', [24, 0])],
+# 		  'visitor_count': 171}]
+# 	return render(request, 'dailycustomer.html',{'domains': x})

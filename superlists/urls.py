@@ -19,4 +19,5 @@ from lists import views
 
 urlpatterns = [
     url(r'^$', views.home_page, name='home'),
+    # url(r'Json/$', views.Json, name='Json')
 ]
