@@ -1,0 +1,796 @@
+{% block title %}
+{% endblock %}
+{% block body %}
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v=
+"urn:schemas-microsoft-com:vml" xmlns:o=
+"urn:schemas-microsoft-com:office:office">
+  <head>
+    <meta charset="utf-8" /><!-- utf-8 works for most cases -->
+    <meta name="viewport" content="width=device-width" />
+    <!-- Forcing initial-scale shouldn't be necessary -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="x-apple-disable-message-reformatting" />
+    <title></title><!-- CSS Reset : BEGIN -->
+
+    <style type="text/css">
+/*<![CDATA[*/
+
+        html,
+        body {
+            margin: 0 auto !important;
+            padding: 0 !important;
+            height: 100% !important;
+            width: 100% !important;
+            font-family:Helvetica !important;
+        }
+                .presentation-section td span{font-size:14px; color:#333333;font-family:Helvetica"}
+        /* What it does: Stops email clients resizing small text. */
+        * {
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+            -moz-text-size-adjust: 100%;
+        }
+
+        /* What it does: Centers email on Android 4.4 */
+        div[style*="margin: 16px 0"] {
+            margin: 0 !important;
+        }
+
+        /* What it does: Stops Outlook from adding extra spacing to tables. */
+        table,
+        td {
+            mso-table-lspace: 0pt !important;
+            mso-table-rspace: 0pt !important;
+        }
+
+        /* What it does: Fixes webkit padding issue. Fix for Yahoo mail table alignment bug. Applies table-layout to the first 2 tables then removes for anything nested deeper. */
+        table {
+            border-spacing: 0 !important;
+            border-collapse: collapse !important;
+            table-layout: fixed !important;
+            margin: 0 auto !important;
+        }
+        table table table {
+            table-layout: auto;
+        }
+
+        /* What it does: Uses a better rendering method when resizing images in IE. */
+        img {
+            -ms-interpolation-mode:bicubic;
+        }
+
+        /* What it does: A work-around for email clients meddling in triggered links. */
+        *[x-apple-data-detectors],  /* iOS */
+        .x-gmail-data-detectors,    /* Gmail */
+        .x-gmail-data-detectors *,
+        .aBn {
+            border-bottom: 0 !important;
+            cursor: default !important;
+            color: inherit !important;
+            text-decoration: none !important;
+            font-size: inherit !important;
+            font-family: inherit !important;
+            font-weight: inherit !important;
+            line-height: inherit !important;
+        }
+
+        /* What it does: Prevents Gmail from displaying an download button on large, non-linked images. */
+        .a6S {
+           display: none !important;
+           opacity: 0.01 !important;
+       }
+       /* If the above doesn't work, add a .g-img class to any image in question. */
+       img.g-img + div {
+           display: none !important;
+       }
+
+       /* What it does: Prevents underlining the button text in Windows 10 */
+        .button-link {
+            text-decoration: none !important;
+        }
+
+        /* What it does: Removes right gutter in Gmail iOS app*/
+        /* Create one of these media queries for each additional viewport size you'd like to fix */
+        @media only screen and (min-device-width: 375px) and (max-device-width: 413px) { /* iPhone 6 and 6+ */
+            .email-container {
+                min-width: 375px !important;
+            }
+        }
+
+    /*]]>*/
+    </style><!-- CSS Reset : END -->
+    <!-- Progressive Enhancements : BEGIN -->
+
+    <style type="text/css">
+/*<![CDATA[*/
+
+        /* What it does: Hover styles for buttons */
+        .button-td,
+        .button-a {
+            transition: all 100ms ease-in;
+        }
+        .button-td:hover,
+        .button-a:hover {
+            background: #555555 !important;
+            border-color: #555555 !important;
+        }
+
+        /* Media Queries */
+
+    @media screen and (max-width: 767px) {
+                #logo {
+    text-align: center !important;
+    }
+    .presentation-section {
+    width: 100%;
+    margin-bottom: 20px;
+    }
+        }
+        @media screen and (max-width: 600px) {
+
+            .email-container {
+                width: 100% !important;
+                margin: auto !important;
+            }
+
+            /* What it does: Forces elements to resize to the full width of their container. Useful for resizing images beyond their max-width. */
+            .fluid {
+                max-width: 100% !important;
+                height: auto !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
+
+            /* What it does: Forces table cells into full-width rows. */
+            .stack-column,
+            .stack-column-center {
+                display: block !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                direction: ltr !important;
+            }
+            /* And center justify these ones. */
+            .stack-column-center {
+                text-align: center !important;
+            }
+
+            /* What it does: Generic utility class for centering. Useful for images, buttons, and nested tables. */
+            .center-on-narrow {
+                text-align: center !important;
+                display: block !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+                float: none !important;
+            }
+            table.center-on-narrow {
+                display: inline-block !important;
+            }
+
+            /* What it does: Adjust typography on small screens to improve readability */
+            .email-container p {
+                font-size: 17px !important;
+                line-height: 22px !important;
+            }
+        }
+
+        @media screen and (min-width: 767px){
+          .wordwrap{
+            width : 100% !important;
+          }
+
+        }
+
+        @media screen and (max-width :767px){
+          .wordwraplong{
+            word-wrap: break-word !important;
+          }
+        }
+
+        #wrapper{
+          overflow-x: scroll;
+          width :1000px;
+          }
+
+    /*]]>*/
+    </style><!-- Progressive Enhancements : END -->
+    <!-- What it does: Makes background images in 72ppi Outlook render at correct size. -->
+    <!--[if gte mso 9]>
+    <xml>
+        <o:OfficeDocumentSettings>
+            <o:AllowPNG/>
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+    </xml>
+    <![endif]-->
+  </head>
+  <body width="100%" bgcolor="#EEEEEE" style=
+  "margin: 0; mso-line-height-rule: exactly;">
+  <div id="wrapper">
+    <center style=
+    "width: 100%; background: #eeeeee; text-align: left;">
+      <!-- Email Header : BEGIN -->
+      <table role="presentation" cellspacing="0" cellpadding="0"
+      border="0" align="center" width="600" style="margin: auto;"
+      class="email-container">
+        <tr>
+          <td id="logo" style="padding: 20px 0; text-align: left">
+            <img src="https://{{ domain }}/static/common/images/giosg-logo.png" width="100" height="40" alt=
+            "giosg_logo" border="0" style="height: auto;" />
+          </td>
+        </tr>
+      </table><!-- Email Header : END -->
+      <!-- Email Body : BEGIN -->
+      <table role="presentation" cellspacing="0" cellpadding="0"
+      border="0" align="center" width="600" style="margin: auto;"
+      class="email-container">
+        <tr>
+          <td bgcolor="#FFFFFF" align="center">
+            <h5 style=
+            "font-size:21px; color:gray; margin-bottom:15px; font-family:Helvetica; font-weight:300 ;margin-top: 30;">
+            {{ yesterday_str }}
+            </h5>
+          </td>
+        </tr>
+        <tr>
+          <td bgcolor="#FFFFFF" align="center">
+            <h1 style=
+            "font-size:22px; color:#333333; margin-bottom:10px; margin-top:20px; font-family:Helvetica; font-weight:bold">
+            Good Morning!
+            </h1>
+          </td>
+        </tr>
+        <tr>
+          <td bgcolor="#FFFFFF" align="center">
+            <p style=
+            "font-size:14px; color:#333333; margin-bottom:15px; margin-top:0px; font-family:Helvetica; font-weight:200">
+            Here are your daily stats from yesterday
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td bgcolor="#FFFFFF" align="center">
+            <img src="https://{{ domain }}/static/common/images/dailystats-mug.png" style=
+            "max-width:130px; width:100%; height:auto; margin-bottom:3px;" />
+          </td>
+        </tr>
+        <tr>
+          <td bgcolor="#FFFFFF">
+            <table role="presentation" cellspacing="20" cellpadding=
+            "0" border="0" align="center" style="margin: auto">
+              <tr>
+                <td style=
+                "border-radius: 28px; background: #23527c; height:30px; text-align: center;"
+                class="button-td">
+                  <a href="https://service.giosg.com/reporting/" style=
+                  "background: #6666ff; border: 7px solid #6666ff; font-family: Helvetica; font-size: 12px; line-height: 16px; text-align: center; text-decoration: none; display: block; border-radius: 28px;; font-weight: bold;"
+                  class=
+                  "button-a">&nbsp;&nbsp;&nbsp;&nbsp;<span style=
+                  "color:#ffffff;">Go to your giosg reporting for
+                  more</span>&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+          <!--LOOP STARTS FROM HERE -->
+          {% for vis_domain in domains %}
+        <tr>
+          <td bgcolor="#FFFFFF" align="center">
+            <h1 style=
+            "height:2px; border-top: 2px solid #6666ff; padding:0 20px; max-width:87%;">
+            </h1>
+          </td>
+        </tr>
+
+        <tr>
+          <td bgcolor="#FFFFFF" align="center">
+            <h3 style=
+            "font-size:18px; color:#333333; margin-bottom:5px; margin-top:20px; font-family:Helvetica; font-weight:500;">
+            {{ vis_domain.domain_name }}
+            </h3>
+          </td>
+        </tr>
+
+        <!-- 2 Even Columns : BEGIN -->
+        <tr>
+          <td bgcolor="#FFFFFF" align="center" valign="top" style=
+          "padding: 10px;">
+            <table role="presentation" cellspacing="0" cellpadding=
+            "0" border="0" width="100%">
+              <tr>
+                <!-- Column : BEGIN -->
+                <td width="50%" class="stack-column-center" style=
+                "margin:10px 0;">
+                  <table role="presentation" cellspacing="0"
+                  cellpadding="0" border="0" bgcolor="#F4F4F4"
+                  style=
+                  "margin:10px; width:95%; border-radius:5px;">
+                    <tr>
+                      <td style=
+                      "text-align:left; font-size:28px; font-family:Helvetica; margin: 0 0 10px; padding:10px 20px 5px;">
+                      {{ vis_domain.visitor_count }}
+                      </td>
+                      <td>
+                          {% if vis_domain.vis_change == '-' or vis_domain.vis_change == 0 %}
+                                <img src="https://{{ domain }}/static/common/images/dailystats-arrow-no-change.png" style=
+                        "max-width:50px; width:100%;padding:10px 20px 5px; font-family:Helvetica; float:right; height:auto;" />
+                            {% else %}{% if vis_domain.vis_change > 0 %}
+                                <img src="https://{{ domain }}/static/common/images/dailystats-arrow-up.png" style=
+                                    "max-width:50px; width:100%;padding:10px 20px 5px; font-family:Helvetica; float:right; height:auto;" />
+                            {% else %}{% if vis_domain.vis_change < 0 and vis_domain.vis_change >= -15 %}
+                                <img src="https://{{ domain }}/static/common/images/dailystats-arrow-down.png" style=
+                                    "max-width:50px; width:100%;padding:10px 20px 5px; font-family:Helvetica; float:right; height:auto;" />
+                            {% else %}{% if vis_domain.vis_change < -15 %}
+                                <img src="https://{{ domain }}/static/common/images/dailystats-arrow-down.png" style=
+                                    "max-width:50px; width:100%;padding:10px 20px 5px; font-family:Helvetica; float:right; height:auto;" />
+                            {% endif %}{% endif %}{% endif %}{% endif %}
+
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style=
+                      " font-size:13px; font-weight: 800; text-align: left; font-family:Helvetica; width:160px; padding:5px 5px 5px 20px; height: 40px; vertical-align: top;">
+                      Unique daily visitors
+                      </td>
+                      <td style=
+                      " font-size:14px; font-family:Helvetica; padding:5px 5px 5px 20px; text-align: center;">
+                        {% if vis_domain.vis_change > 0 %}
+                            +{{ vis_domain.vis_change }} %
+                        {% else %}
+                            {{ vis_domain.vis_change }} %
+                        {% endif %}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style=
+                      "font-size:11px; text-align: left; font-family:Helvetica;padding:5px 20px 10px">
+                      Total sessions: {{ vis_domain.session_count }}
+                      </td>
+                    </tr>
+                  </table>
+                </td><!-- Column : END -->
+                <!-- Column : BEGIN -->
+                <td width="50%" class="stack-column-center" style=
+                "margin:10px 0;">
+                  <table role="presentation" cellspacing="0"
+                  cellpadding="0" border="0" bgcolor="#F4F4F4"
+                  style=
+                  "margin:10px; width:95%; border-radius:5px;">
+                    <tr>
+                      <td style=
+                      "text-align:left; font-family:Helvetica; font-size:28px; padding:10px 20px 5px; margin:0 0 10px">
+                      {{ vis_domain.chatted_visitors }}
+                      </td>
+                      <td>
+
+                          {% if vis_domain.chatted_visitors_change == '-' or vis_domain.chatted_visitors_change == 0 %}
+                                <img src="https://{{ domain }}/static/common/images/dailystats-arrow-no-change.png" style= "max-width:50px; width:100%;padding:10px 20px 5px; float:right; height:auto;" />
+                            {% else %}{% if vis_domain.chatted_visitors_change > 0 %}
+                                <img src="https://{{ domain }}/static/common/images/dailystats-arrow-up.png" style="max-width:50px; width:100%;padding:10px 20px 5px; float:right; height:auto;" />
+                            {% else %}{% if vis_domain.chatted_visitors_change < 0 and vis_domain.chatted_visitors_change >= -15 %}
+                                <img src="https://{{ domain }}/static/common/images/dailystats-arrow-down.png" style="max-width:50px; width:100%;padding:10px 20px 5px; float:right; height:auto;" />
+                            {% else %}{% if vis_domain.chatted_visitors_change < -15 %}
+                                <img src="https://{{ domain }}/static/common/images/dailystats-arrow-down.png" style="max-width:50px; width:100%;padding:10px 20px 5px; float:right; height:auto;" />
+                            {% endif %}{% endif %}{% endif %}{% endif %}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style=
+                      " font-size:13px; font-weight: 800; font-family:Helvetica; text-align: left; width:160px; padding:5px 5px 5px 20px; height: 40px; vertical-align: top; ">
+                      Visitor chat count
+                      </td>
+                        <td style=
+                      " font-size:14px; font-family:Helvetica; padding:5px 5px 5px 20px; text-align: center;">
+                        {% if vis_domain.chatted_visitors_change > 0 %}
+                            +{{ vis_domain.chatted_visitors_change }} %
+                        {% else %}
+                            {{ vis_domain.chatted_visitors_change }} %
+                        {% endif %}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style=
+                      "font-size:11px; text-align: left;font-family:Helvetica; padding:5px 20px 10px">
+                      Total chats: {{ vis_domain.chat_count }}
+                      </td>
+                    </tr>
+                  </table>
+                </td><!-- Column : END -->
+              </tr>
+            </table>
+          </td>
+        </tr><!-- 2 Even Columns : END -->
+        <!-- 2 Even Columns : BEGIN -->
+        <tr>
+          <td bgcolor="#FFFFFF" align="center" valign="top" style=
+          "padding: 10px;">
+            <table role="presentation" cellspacing="0" cellpadding=
+            "0" border="0" width="90%">
+              <tr>
+                <!-- Column : BEGIN -->
+                <td width="50%" class="stack-column-center" align=
+                "center">
+                  <table role="presentation section" class=
+                  "presentation-section" cellspacing="0"
+                  cellpadding="0" border="0">
+                    <tr>
+                      <th style="text-align: center">
+                        <h3 style=
+                        " font-size:14px; font-weight:800; margin:0 0 10px; font-family:Helvetica;">
+                        Page views from companies
+                        </h3>
+                      </th>
+                    </tr>
+                      {% for comp, values in vis_domain.visitor_companies %}
+                    <tr>
+                      <td>
+                        <p style="margin:5px 15px 25px; font-family:Helvetica; width:90%;">
+                        <span style="font-size:10px ;width:70% ;float:left">{{ comp }}</span>
+                        <span style="font-size:10px ; color:#000000; float:right; ">{{ values }}</span>
+                        </p>
+                      </td>
+
+                    </tr>
+                      {% endfor %}
+
+                  </table>
+                </td><!-- Column : END -->
+                <!-- Column : BEGIN -->
+                <td width="50%"  style="vertical-align: top;">
+                  <table role="presentation" class=
+                  "presentation-section" cellspacing="0"
+                  cellpadding="0" border="0" align="center" width="80%">
+                    <tr>
+                      <th style="text-align: center">
+                        <h3 style=
+                        " font-size:14px; font-weight:800; margin:0 0 10px; font-family:Helvetica;">
+                        <span>Tags used in chats</span>
+                        </h3>
+                      </th>
+                    </tr>
+                    {% for tags in vis_domain.tags %}
+                    <tr>
+                      <td>
+                        <p class="wordwrap" style="margin:5px 15px; font-family:Helvetica; width:90%;">
+                        <span class="wordwraplong" style="font-size:10px ; ">{{ tags.name }}</span>
+                        <span style="font-size:10px ; color:#000000; float:right;">{{ tags.tag_count }}</span>
+                        </p>
+                      </td>
+                    </tr>
+                    {% empty %}
+                     <tr>
+                        <td style="text-align: center">
+                          <p style="margin:5px 0; font-size:10px;font-family:Helvetica;">
+                           No tags used
+                          </p>
+                        </td>
+                    </tr>
+                    {% endfor %}
+
+                  </table>
+                </td><!-- Column : END -->
+              </tr>
+            </table>
+          </td>
+        </tr><!-- 2 Even Columns : END -->
+        {% if vis_domain.has_shopping_cart == True %}
+        <tr>
+          <td bgcolor="#FFFFFF" align="center" valign="top" style=
+          "padding: 0 10px;">
+            <table role="presentation" cellspacing="0" cellpadding=
+            "0" border="0" width="100%">
+              <tr>
+                <!-- Column : BEGIN -->
+                <td width="50%" class="stack-column-center" style=
+                "margin:10px 0;">
+                  <table role="presentation" cellspacing="0"
+                  cellpadding="0" border="0" bgcolor="#F4F4F4"
+                  style=
+                  "margin:10px; width:95%; border-radius:5px;">
+                    <tr>
+                      <td style=
+                      "text-align:left; font-family:Helvetica; font-size:28px; padding:10px 20px 5px; margin:0 0 10px">
+                      {{ vis_domain.buyers }}
+                      </td>
+                      <td>
+                          {% if vis_domain.buyers_change == '-' or vis_domain.buyers_change == 0 %}
+                            <img src="https://{{ domain }}/static/common/images/dailystats-arrow-no-change.png" style="max-width:50px; width:100%;padding:10px 20px 5px; float:right; height:auto;" />
+                        {% else %}{% if vis_domain.buyers_change > 0 %}
+                            <img src="https://{{ domain }}/static/common/images/dailystats-arrow-up.png" style="max-width:50px; width:100%;padding:10px 20px 5px; float:right; height:auto;" />
+                        {% else %}{% if vis_domain.buyers_change < 0 and vis_domain.buyers_change >= -15 %}
+                            <img src="https://{{ domain }}/static/common/images/dailystats-arrow-down.png" style="max-width:50px; width:100%;padding:10px 20px 5px; float:right; height:auto;" />
+                        {% else %}{% if vis_domain.buyers_change < -15 %}
+                            <img src="https://{{ domain }}/static/common/images/dailystats-arrow-down.png" style="max-width:50px; width:100%;padding:10px 20px 5px; float:right; height:auto;" />
+                        {% endif %}{% endif %}{% endif %}{% endif %}
+
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style=
+                      " font-size:13px; font-weight: 800; font-family:Helvetica; text-align: left; width:160px; padding:5px 5px 5px 20px; height: 40px; vertical-align: top; ">
+                      Unique daily buyers
+                      </td>
+                      <td style=
+                      " font-size:14px; font-family:Helvetica; padding:5px 5px 5px 20px; text-align: center;">
+                        {% if vis_domain.buyers_change > 0 %}
+                            +{{ vis_domain.buyers_change }} %
+                        {% else %}
+                            {{ vis_domain.buyers_change }} %
+                        {% endif %}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style=
+                      "font-size:11px; text-align: left;font-family:Helvetica; padding:5px 20px 10px">
+                      Conversion: {{ vis_domain.conversion }} %
+                      </td>
+                    </tr>
+                  </table>
+                </td><!-- Column : END -->
+                <!-- Column : BEGIN -->
+                <td width="50%" class="stack-column-center" style=
+                "margin:10px 0;">
+                  <table role="presentation" cellspacing="0"
+                  cellpadding="0" border="0" bgcolor="#F4F4F4"
+                  style=
+                  "margin:10px; width:95%; border-radius:5px;">
+                    <tr>
+                      <td style=
+                      "text-align:left; font-family:Helvetica; font-size:28px; padding:10px 20px 5px; margin:0 0 10px;">
+                      {{ vis_domain.sales_chatted }}
+                      </td>
+                      <td>
+
+                          {% if vis_domain.sales_chatted_change == '-' or vis_domain.sales_chatted_change == 0 %}
+                            <img src="https://{{ domain }}/static/common/images/dailystats-arrow-no-change.png" style= "max-width:50px; width:100%;padding:10px 20px 5px; float:right; height:auto;" />
+                        {% else %}{% if vis_domain.sales_chatted_change > 0 %}
+                            <img src="https://{{ domain }}/static/common/images/dailystats-arrow-up.png" style= "max-width:50px; width:100%;padding:10px 20px 5px; float:right; height:auto;" />
+                        {% else %}{% if vis_domain.sales_chatted_change < 0 and vis_domain.sales_chatted_change >= -15 %}
+                            <img src="https://{{ domain }}/static/common/images/dailystats-arrow-down.png" style= "max-width:50px; width:100%;padding:10px 20px 5px; float:right; height:auto;" />
+                        {% else %}{% if vis_domain.sales_chatted_change < -15 %}
+                            <img src="https://{{ domain }}/static/common/images/dailystats-arrow-down.png" style= "max-width:50px; width:100%;padding:10px 20px 5px; float:right; height:auto;" />
+                        {% endif %}{% endif %}{% endif %}{% endif %}
+
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style=
+                      "font-size:13px; font-weight: 800;font-family:Helvetica; text-align: left; width:160px;padding:5px 5px 5px 20px; vertical-align: top; height: 40px;">
+                      Sales with chat
+                      </td>
+                      <td style=
+                      " font-size:14px; font-family:Helvetica; padding:5px 5px 5px 20px; text-align: center;">
+                      {% if vis_domain.sales_chatted_change > 0 %}
+                        +{{ vis_domain.sales_chatted_change }} %
+                    {% else %}
+                        {{ vis_domain.sales_chatted_change }} %
+                    {% endif %}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style=
+                      "font-size:11px; text-align: left;font-family:Helvetica; padding:5px 20px 10px">
+                      Per buyer: {{ vis_domain.sales_chatted_average }} €
+                      </td>
+                    </tr>
+                  </table>
+                </td><!-- Column : END -->
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td bgcolor="#FFFFFF" align="center" valign="top" style=
+          "padding: 0 10px;">
+            <table role="presentation" cellspacing="0" cellpadding=
+            "0" border="0" width="100%">
+              <tr>
+                <!-- Column : BEGIN -->
+                <td width="50%" class="stack-column-center" style=
+                "margin:10px 0;">
+                  <table role="presentation" cellspacing="0"
+                  cellpadding="0" border="0" bgcolor="#F4F4F4"
+                  style=
+                  "margin:10px; width:95%; border-radius:5px;">
+                    <tr>
+                      <td style=
+                      "text-align:left; font-family:Helvetica; font-size:28px; padding:10px 20px 5px; margin:0 0 10px">
+                      {{ vis_domain.total_sales }}
+                      </td>
+                      <td>
+                        {% if vis_domain.total_sales_change == '-' or vis_domain.total_sales_change == 0 %}
+                            <img src="https://{{ domain }}/static/common/images/dailystats-arrow-no-change.png" style="max-width:50px; width:100%;padding:10px 20px 5px; float:right; height:auto;" />
+                        {% else %}{% if vis_domain.total_sales_change > 0 %}
+                            <img src="https://{{ domain }}/static/common/images/dailystats-arrow-up.png" style="max-width:50px; width:100%;padding:10px 20px 5px; float:right; height:auto;" />
+                        {% else %}{% if vis_domain.total_sales_change < 0 and vis_domain.total_sales_change >= -15 %}
+                            <img src="https://{{ domain }}/static/common/images/dailystats-arrow-down.png" style="max-width:50px; width:100%;padding:10px 20px 5px; float:right; height:auto;" />
+                        {% else %}{% if vis_domain.total_sales_change < -15 %}
+                            <img src="https://{{ domain }}/static/common/images/dailystats-arrow-down.png" style="max-width:50px; width:100%;padding:10px 20px 5px; float:right; height:auto;" />
+                        {% endif %}{% endif %}{% endif %}{% endif %}
+
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style=
+                      " font-size:13px; font-weight: 800; font-family:Helvetica; text-align: left; width:160px; padding:5px 5px 5px 20px; height: 40px; vertical-align: top;" >
+                      Total sales
+                      </td>
+                      <td style=
+                      " font-size:14px; font-family:Helvetica; padding:5px 5px 5px 20px; text-align: center;">
+                      {% if vis_domain.total_sales_change > 0 %}
+                        +{{ vis_domain.total_sales_change }} %
+                    {% else %}
+                        {{ vis_domain.total_sales_change }} %
+                    {% endif %}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style=
+                      "font-size:11px; text-align: left;font-family:Helvetica; padding:5px 20px 10px">
+                      Per buyer: {{ vis_domain.total_sales_average }} €
+                      </td>
+                    </tr>
+                  </table>
+                </td><!-- Column : END -->
+                <!-- Column : BEGIN -->
+                <td width="50%" class="stack-column-center" style=
+                "margin:10px 0;">
+                  <table role="presentation" cellspacing="0"
+                  cellpadding="0" border="0" bgcolor="#F4F4F4"
+                  style=
+                  "margin:10px; width:95%; border-radius:5px;">
+                    <tr>
+                      <td style=
+                      "text-align:left; font-family:Helvetica; font-size:28px; padding:10px 20px 5px; margin:0 0 10px;">
+                      {{ vis_domain.sales_monthly_chatted_total }}
+                      </td>
+                      <td>
+                          {% if vis_domain.sales_monthly_chatted_change == '-' or vis_domain.sales_monthly_chatted_change == 0 %}
+                            <img src="https://{{ domain }}/static/common/images/dailystats-arrow-no-change.png"  style= "max-width:50px; width:100%;padding:10px 20px 5px; float:right; height:auto;" />
+                            {% else %}{% if vis_domain.sales_monthly_chatted_change > 0 %}
+                                <img src="https://{{ domain }}/static/common/images/dailystats-arrow-up.png"  style= "max-width:50px; width:100%;padding:10px 20px 5px; float:right; height:auto;" />
+                            {% else %}{% if vis_domain.sales_monthly_chatted_change < 0 and vis_domain.sales_monthly_chatted_change >= -15 %}
+                                <img src="https://{{ domain }}/static/common/images/dailystats-arrow-down.png"  style= "max-width:50px; width:100%;padding:10px 20px 5px; float:right; height:auto;" />
+                            {% else %}{% if vis_domain.sales_monthly_chatted_change < -15 %}
+                                <img src="https://{{ domain }}/static/common/images/dailystats-arrow-down.png"  style= "max-width:50px; width:100%;padding:10px 20px 5px; float:right; height:auto;" />
+                            {% endif %}{% endif %}{% endif %}{% endif %}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style=
+                      " font-size:13px; font-weight: 800;font-family:Helvetica; text-align: left; width:160px; padding:5px 5px 5px 20px; height: 40px; vertical-align: top">
+                      Subscription sales with chat
+                      </td>
+                      <td style=
+                      "font-size:14px; font-family:Helvetica; padding:5px 5px 5px 20px; text-align: center;">
+                      {% if vis_domain.sales_monthly_chatted_change > 0 %}
+                        +{{ vis_domain.sales_monthly_chatted_change }} %
+                    {% else %}
+                        {{ vis_domain.sales_monthly_chatted_change }} %
+                    {% endif %}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style=
+                      "font-size:11px; text-align: left;font-family:Helvetica; padding:5px 20px 10px">
+                      Per buyer: {{ vis_domain.sales_monthly_chatted_average }} €
+                      </td>
+                    </tr>
+                  </table>
+                </td><!-- Column : END -->
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+        {% endif %}
+        {% endfor %}
+         <!--- LOOP ENDS HERE -->
+
+          <td bgcolor="#FFFFFF" align="center" style=
+          "padding:25px 0 0">
+            <table>
+              <tbody>
+                <tr>
+                  <td bgcolor="#FFFFFF" align="center">
+                    <img src="https://{{ domain }}/static/common/images/dailystats-confetti.png" style=
+                    "max-width:30px; width:100%; height:auto;" />
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h2 style=
+                    "font-size:18px; font-weight:800; font-family:Helvetica; margin-top:10px; margin-bottom:20px;">
+                    Well done, now you are up to date!
+                    </h2>
+                  </td>
+                </tr>
+                <tr>
+                  <td bgcolor="#FFFFFF" align="center" style=
+                  "padding: 0 0 60px;">
+                    <table role="presentation" cellspacing="0"
+                    cellpadding="0" border="0" align="center"
+                    style="margin: auto">
+                      <tr>
+                        <td style=
+                        "border-radius: 28px; background: #23527c; height:30px; text-align: center;"
+                        class="button-td">
+                          <a href="https://service.giosg.com/reporting/" style=
+                          "background: #6666ff; border: 10px solid #6666ff; font-family: Helvetica; font-size: 13px; line-height: 16px; text-align: center; text-decoration: none; display: block; border-radius: 28px;; font-weight: bold;"
+                          class=
+                          "button-a">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ffffff;">Go
+                          to your giosg reporting for more</span>
+                          &nbsp;&nbsp;&nbsp;&nbsp;</a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr><!-- Clear Spacer : BEGIN -->
+      </table><!-- Email Body : END -->
+      <!-- Email Footer : BEGIN -->
+      <table role="presentation" cellspacing="0" cellpadding="0"
+      border="0" align="center" width="600" style=
+      "margin: auto; font-family: Helvetica; color: #888888; line-height:18px;"
+      class="email-container">
+        <tr>
+          <td style="text-align: center">
+          <img src="https://{{ domain }}/static/common/images/dailystats-point.png" width="40" height="20" />
+          </td>
+        </tr>
+      </table>
+      <table role="presentation" cellspacing="0" cellpadding="0"
+      border="0" align="center" width="600" style=
+      "margin: auto; font-family: Helvetica; color: #888888; line-height:18px;"
+      class="email-container">
+        <tr>
+          <td style=
+          "padding: 20px 10px 10px;width: 100%;font-size: 14px; font-family: Helvetica; line-height:18px; text-align: center; color: #000000;"
+          class="x-gmail-data-detectors">
+            Kind regards<br />
+            <br />
+            Your customer service
+          </td>
+        </tr>
+        <tr>
+          <td style="text-align: center; padding:0 10px 10px">
+            <img src="https://{{ domain }}/static/common/images/giosg-logo.png" width="100" height="35" />
+          </td>
+        </tr>
+        <tr style=
+        "display:table; text-align:center; margin:0 auto;">
+        <td style="text-align: center;">
+            <a href="https://twitter.com/giosgCom"><img src="https://{{ domain }}/static/common/images/icon-dailystats-twitter.png" width="10"
+            height="10" style="margin:15px 15px 15px;" /></a>
+          </td>
+          <td style="text-align: center; margin:2px;">
+            <a href="https://www.facebook.com/giosgcom/"><img src="https://{{ domain }}/static/common/images/icon-dailystats-facebook.png" width="10"
+            height="10" style="margin:15px 15px 15px;" /></a>
+          </td>
+          <td style="text-align: center; margin:2px;">
+            <a href="https://www.linkedin.com/company/2572545/"><img src="https://{{ domain }}/static/common/images/icon-dailystats-linkedin.png" width="10"
+            height="10" style="margin:15px 15px 15px;" /></a>
+          </td>
+        </tr>
+        <tr>
+          <td style="text-align: center; padding-bottom:15px;">
+            <a href="https://service.giosg.com/customer/login/" style=
+            "color:#888888; text-decoration:none; font-size:14px;">Change
+            your email preferences</a>
+          </td>
+        </tr>
+      </table><!-- Email Footer : END -->
+      <!-- Full Bleed Background Section : BEGIN -->
+    </center>
+    </div>
+  </body>
+</html>
+
+{% endblock %}
+
+
